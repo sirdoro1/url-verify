@@ -1,0 +1,28 @@
+{
+    "name": "sirdoro/url-verify",
+    "description": "This package verify the url where a project install and send the url specified api",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Dave Doro",
+            "email": "sirdoro1@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "guzzlehttp/guzzle": "~6.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Sirdoro\\UrlVerify\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Sirdoro\\UrlVerify\\UrlVerifyServiceProvider"
+            ]
+        }
+    }
+}
