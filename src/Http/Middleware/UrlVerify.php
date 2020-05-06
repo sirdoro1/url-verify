@@ -31,7 +31,11 @@ class UrlVerify
             try {
                 
                 if(!in_array($_SERVER['REMOTE_ADDR'], $localserver)){
-                    $response = $client->request('GET',config('url-verify.api-url').'/?url='.$url);
+                    $response = $client->request('POST',config('url-verify.api-url'),[
+                        'form_params' => [
+                            'url'=>$url,
+                        ],
+                    ]);
                     
                     if($response->getStatusCode()=='200' && !in_array($_SERVER['REMOTE_ADDR'], $localserver)){
                         file_put_contents(public_path('verified'),now());
